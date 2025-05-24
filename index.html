@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 style="margin-left: 800px">Сайт - резюме.</h1>
+<hr>
+<img src="me.jpg" style="width: 180px; height: 180px;margin-left: 300px;margin-top:20px"/>
+<div class="TextBlock">
+<div>
+<span class="Thesis">Фамилия: </span>
+<span class="AntiThesis" id="SurnameLabel" >Баранов</span>
+</div>
+<div>
+<span class="Thesis" >Имя:</span>
+<span class="AntiThesis" name="NameLabel" >Кирилл</span>
+</div>
+<div>
+<span class="Thesis">Отчество:</span>
+<span class="AntiThesis" name="PatronymicLabel" >Павлович</span>
+</div>
+</div>
+<div class="inputs">
+<input type=text id="SurnameInput" size=20>
+<input type="button" onclick="ButtonClicked()" value="Принять">
+</div>
+<input type="button" class="ChangeBck" onclick="ChangeBck()" class="TextBlock" value="Сменить фон">
+<script>
+function ButtonClicked(){
+var NewSurname=document.getElementById("SurnameInput").value;
+if(NewSurname.trim()!==""){
+	document.getElementById("SurnameLabel").textContent=NewSurname;
+	document.getElementById("SurnameInput").value="";
+	}
+}
+function ChangeBck(){
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}
+</script>
+</body>
+<style>
+body{
+margin:0auto;
+}
+.ChangeBck{
+margin-top: -180px;
+position:absolute;
+margin-left: 1000px;
+border-radius: 5px;
+}
+.inputs{
+margin-left:520px;
+margin-top:50px;
+}
+.TextBlock{
+margin-top: -150px;
+margin-left: 500px;
+position:relative;
+}
+.Thesis{
+text-align:right;
+font-size: 24px;
+font-weight: Bold;
+}
+.AntiThesis{
+font-size: 22px;
+font-style: Italic;
+}
+</style>
+</html>
