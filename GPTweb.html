@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f6;
+            color: #333;
+        }
+
+        header {
+            background: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 5px;
+            transition: opacity 0.5s;
+        }
+
+        .fade-in {
+            opacity: 0;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Кирилл Баранов</h1>
+        <h2>Веб-разработчик</h2>
+        <p>Краткое описание о себе, своих целях и карьере.</p>
+        <nav>
+            <a href="#contact">Связаться со мной</a>
+            <a href="path-to-your-resume.pdf" download>Скачать резюме</a>
+        </nav>
+    </header>
+    
+    <section id="experience" class="fade-in">
+        <h2>Опыт работы</h2>
+        <div class="job">
+            <h3>Студент</h3>
+            <p><strong>МГТУ Станкин</strong> (Годы)</p>
+            <p>Учился</p>
+        </div>
+        <div class="job">
+            <h3>Должность 2</h3>
+            <p><strong>Компания 2</strong> (Годы)</p>
+            <p>Короткое описание обязанностей.</p>
+        </div>
+        <!-- Добавьте больше мест работы по аналогии -->
+    </section>
+
+    <section id="education" class="fade-in">
+        <h2>Образование</h2>
+        <div class="edu">
+            <p><strong>МГТУ СТАНКИН / Курсы</strong> (Инженер по автоматизации технологический процессов и производств, 2026)</p>
+        </div>
+    </section>
+
+    <section id="skills" class="fade-in">
+        <h2>Навыки</h2>
+        <ul>
+            <li>Технический навык 1</li>
+            <li>Технический навык 2</li>
+            <li>Мягкий навык 1</li>
+            <li>Мягкий навык 2</li>
+            <!-- Добавьте больше навыков по аналогии -->
+        </ul>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2>Контактная форма</h2>
+        <form id="contactForm">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="message">Сообщение:</label>
+            <textarea id="message" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+
+    <footer>
+        <a href="path-to-your-resume.pdf" download>Скачать резюме</a>
+    </footer>
+
+    <script>
+        // Плавный скроллинг к секции 'contact'
+        document.querySelector('nav a[href="#contact"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Проверка на видимость при прокрутке
+        const sections = document.querySelectorAll('section');
+
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert('Сообщение отправлено!');
+                this.reset();
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        });
+    </script>
+</body>
+</html>
