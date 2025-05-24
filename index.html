@@ -22,7 +22,12 @@
 <input type=text id="SurnameInput" size=20>
 <input type="button" onclick="ButtonClicked()" value="Принять">
 </div>
-<input type="button" class="ChangeBck" onclick="ChangeBck()" class="TextBlock" value="Сменить фон">
+<div>
+<input type="button" class="ChangeBck" onclick="ChangeBck()" value="Сменить фон">
+</div>
+<div>
+<input type="button" class="NextPage" onclick="NextPage()" value="Перейти на следующую страницу">
+</div>
 <script>
 function ButtonClicked(){
 var NewSurname=document.getElementById("SurnameInput").value;
@@ -38,11 +43,20 @@ function ChangeBck(){
     const b = Math.floor((Math.random() * (seed * 3) + 1) % 256);
     return `rgb(${r}, ${g}, ${b})`;
 }
+function NextPage(){
+window.location.href = 'finalIndividual.html';
+}
 </script>
 </body>
 <style>
 body{
 margin:0auto;
+}
+.NextPage{
+margin-top: -180px;
+position:absolute;
+margin-left: 1100px;
+border-radius: 5px;
 }
 .ChangeBck{
 margin-top: -180px;
