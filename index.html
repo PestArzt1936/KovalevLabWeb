@@ -32,10 +32,11 @@ if(NewSurname.trim()!==""){
 	}
 }
 function ChangeBck(){
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    const seed = Date.now() % 1000;
+    const r = Math.floor((Math.random() * seed + 1) % 256);
+    const g = Math.floor((Math.random() * (seed * 2) + 1) % 256);
+    const b = Math.floor((Math.random() * (seed * 3) + 1) % 256);
+    return `rgb(${r}, ${g}, ${b})`;
 }
 </script>
 </body>
