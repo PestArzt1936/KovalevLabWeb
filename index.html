@@ -26,7 +26,10 @@
 <input type="button" class="ChangeBck" onclick="ChangeBck()" value="Сменить фон">
 </div>
 <div>
-<input type="button" class="NextPage" onclick="NextPage()" value="Перейти на следующую страницу">
+<input type="button" class="NextPage1" onclick="NextPage1()" value="Перейти на страницу DeepSeek">
+</div>
+<div>
+<input type="button" class="NextPage2" onclick="NextPage2()" value="Перейти на страницу GPT-4o">
 </div>
 <script>
 function ButtonClicked(){
@@ -43,8 +46,11 @@ function ChangeBck(){
     const b = Math.floor((Math.random() * (seed * 3) + 1) % 256);
     document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
-function NextPage(){
+function NextPage1(){
 window.location.href = 'finalIndividual.html';
+}
+function NextPage2(){
+window.location.href = 'GPTweb.html';
 }
 </script>
 </body>
@@ -52,8 +58,14 @@ window.location.href = 'finalIndividual.html';
 body{
 margin:0auto;
 }
-.NextPage{
+.NextPage1{
 margin-top: -180px;
+position:absolute;
+margin-left: 1100px;
+border-radius: 5px;
+}
+.NextPage2{
+margin-top: -150px;
 position:absolute;
 margin-left: 1100px;
 border-radius: 5px;
